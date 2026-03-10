@@ -127,6 +127,7 @@ export async function saveBudgetDraft(budgetId: string, data: SaveBudgetValues):
                 global_margin: validatedData.global_margin,
                 considerations: validatedData.considerations,
                 proposal_duration: validatedData.proposal_duration,
+                total_uf_final: validatedData.total_uf_final,
             })
             .eq("id", budgetId);
 

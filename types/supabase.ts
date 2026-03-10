@@ -1,4 +1,4 @@
-﻿export type Json =
+export type Json =
   | string
   | number
   | boolean
@@ -244,6 +244,7 @@ export type Database = {
           status: string
           uf_value_at_creation: number
           uf_value_at_send: number | null
+          total_uf_final: number | null
           updated_at: string
         }
         Insert: {
@@ -263,6 +264,7 @@ export type Database = {
           status?: string
           uf_value_at_creation: number
           uf_value_at_send?: number | null
+          total_uf_final?: number | null
           updated_at?: string
         }
         Update: {
@@ -282,6 +284,7 @@ export type Database = {
           status?: string
           uf_value_at_creation?: number
           uf_value_at_send?: number | null
+          total_uf_final?: number | null
           updated_at?: string
         }
         Relationships: [

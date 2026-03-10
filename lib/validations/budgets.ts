@@ -58,6 +58,7 @@ export const saveBudgetSchema = z.object({
     global_margin: z.number().min(0).max(1),
     considerations: z.string().optional().nullable(),
     proposal_duration: z.string().optional().nullable(),
+    total_uf_final: z.number().optional().nullable(),
     partitions: z.array(budgetPartitionSchema).default([]),
     general_expenses: z.array(budgetGeneralExpenseSchema).default([]),
 });
