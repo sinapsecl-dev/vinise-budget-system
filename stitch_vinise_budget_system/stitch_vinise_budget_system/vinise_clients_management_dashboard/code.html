@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VINISE Clients Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0F172A",
+                        "card-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex flex-col bg-slate-900 border-r border-slate-800 shrink-0">
+<div class="p-6 flex flex-col gap-6 h-full">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<h1 class="text-white text-lg font-bold leading-tight">VINISE</h1>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider">Budget System</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 grow">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="text-sm font-medium">Proyectos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white bg-primary/20 border-l-2 border-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined fill-1">group</span>
+<span class="text-sm font-medium">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Presupuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Reportes</span>
+</a>
+<div class="mt-auto pt-4 border-t border-slate-800">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</div>
+</nav>
+<div class="mt-4">
+<button class="w-full py-2.5 px-4 bg-primary text-white text-sm font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Nuevo Proyecto
+                    </button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 bg-white dark:bg-background-dark/50 backdrop-blur-md">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary text-slate-900 dark:text-slate-100 placeholder-slate-500" placeholder="Buscar empresas, contactos o ciudades..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold leading-none">Rodrigo Aravena</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Administrador</p>
+</div>
+<div class="size-10 rounded-full bg-primary/10 border-2 border-primary/20 overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="Profile photo of a professional male administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqrGwCcbZhCAqXR-DRemaIVgIxhkGQFgKcAwNu07__vDYdwlBuF5dIqp8HHl7BxnHRDotn64ezDUQy3Ll5xRNnuy11IHqSWQiQK0XEAs_9wkK4FTn99yUBTq48FouzQkjGAJwj7LeJBwSvxBvSB3yBkvGAFXbYs-9YysadNCt5Be8SBDPA2PEjTgMhrNVyhzYfPo1QQdJ8hTTgsHyVoh3Xpe2n8UZjWxatd9h3h82fqtQFxIRs41VbscUWXSWAR1MIetlKAWy_5dLW"/>
+</div>
+</div>
+</div>
+</header>
+<section class="flex-1 overflow-y-auto p-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight">Clientes</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Gestión centralizada de empresas asociadas y contactos directos.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">person_add</span>
+                        Nuevo Cliente
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">corporate_fare</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-100 transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Constructora Los Andes</h3>
+<div class="flex items-center gap-1.5 mt-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Santiago, Región Metropolitana</span>
+</div>
+</div>
+<div class="space-y-2 mt-2">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">person</span>
+<span>Carlos Méndez</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">call</span>
+<span>+56 9 8765 4321</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">mail</span>
+<span class="truncate">contacto@losandes.cl</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 uppercase font-semibold">Actividad</span>
+<span class="text-sm font-medium text-primary">4 ppto · 2 adjudicados</span>
+</div>
+<button class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-white transition-colors">Ver Presupuestos</button>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">home_work</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-100 transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Inmobiliaria del Sur</h3>
+<div class="flex items-center gap-1.5 mt-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Concepción, Biobío</span>
+</div>
+</div>
+<div class="space-y-2 mt-2">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">person</span>
+<span>Paula Verdugo</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">call</span>
+<span>+56 9 1234 5678</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">mail</span>
+<span class="truncate">p.verdugo@inmosur.cl</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 uppercase font-semibold">Actividad</span>
+<span class="text-sm font-medium text-primary">8 ppto · 5 adjudicados</span>
+</div>
+<button class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-white transition-colors">Ver Presupuestos</button>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">factory</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-100 transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Eléctrica Central</h3>
+<div class="flex items-center gap-1.5 mt-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Valparaíso, V Región</span>
+</div>
+</div>
+<div class="space-y-2 mt-2">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">person</span>
+<span>Andrés Soto</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">call</span>
+<span>+56 9 5544 3322</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">mail</span>
+<span class="truncate">asoto@electricacentral.cl</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 uppercase font-semibold">Actividad</span>
+<span class="text-sm font-medium text-primary">2 ppto · 1 adjudicado</span>
+</div>
+<button class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-white transition-colors">Ver Presupuestos</button>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform cursor-pointer group">
+<div class="flex items-start justify-between">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<div class="flex gap-1">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-100 transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Obras Civiles SPA</h3>
+<div class="flex items-center gap-1.5 mt-1 text-slate-500 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Antofagasta, II Región</span>
+</div>
+</div>
+<div class="space-y-2 mt-2">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">person</span>
+<span>Luis Torres</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">call</span>
+<span>+56 9 9900 1122</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-base">mail</span>
+<span class="truncate">luis.torres@obrasciviles.cl</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs text-slate-500 dark:text-slate-400 uppercase font-semibold">Actividad</span>
+<span class="text-sm font-medium text-primary">12 ppto · 8 adjudicados</span>
+</div>
+<button class="text-xs font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg hover:bg-primary hover:text-white transition-colors">Ver Presupuestos</button>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 hover:-translate-y-1 transition-transform cursor-pointer group border-dashed border-2 border-slate-700 bg-transparent flex items-center justify-center min-h-[320px]">
+<div class="flex flex-col items-center gap-4 text-slate-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-5xl">add_circle</span>
+<span class="font-bold text-lg">Agregar Nueva Empresa</span>
+<p class="text-xs text-center px-8 text-slate-500/60">Registra un nuevo cliente para gestionar sus presupuestos y proyectos.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

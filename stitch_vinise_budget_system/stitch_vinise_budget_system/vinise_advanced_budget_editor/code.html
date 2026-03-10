@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VINISE Advanced Budget Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2559f4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased min-h-screen">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+<div class="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-500">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<h1 class="text-lg font-bold tracking-tight">EECC-07 REV.00</h1>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Borrador</span>
+</div>
+<div class="h-4 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<div class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                    UF: $38.426,21
+                </div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-slate-900 bg-primary/20 flex items-center justify-center text-[10px] font-bold" data-alt="Avatar of user RP">RP</div>
+<div class="size-8 rounded-full border-2 border-slate-900 bg-indigo-500 flex items-center justify-center text-[10px] font-bold" data-alt="Avatar of user CM">CM</div>
+<div class="size-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-sm font-semibold text-slate-300 hover:bg-slate-800 rounded-lg transition-colors border border-slate-700">Preview</button>
+<button class="px-4 py-2 text-sm font-semibold bg-primary text-white hover:bg-primary/90 rounded-lg shadow-lg shadow-primary/20 transition-all">Enviar Presupuesto</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto p-6 flex gap-6">
+<div class="flex-1 flex flex-col gap-6">
+<section class="grid grid-cols-3 gap-4">
+<div class="glass-card rounded-xl p-4 flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Cliente</label>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 text-slate-200 w-full" type="text" value="Constructora Los Andes"/>
+</div>
+<div class="glass-card rounded-xl p-4 flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Proyecto</label>
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 text-slate-200 w-full" type="text" value="Loteo Las Palmas"/>
+</div>
+<div class="glass-card rounded-xl p-4 flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-wider font-bold text-slate-500">Margen Global</label>
+<div class="flex items-center gap-2">
+<input class="bg-transparent border-none p-0 text-sm font-medium focus:ring-0 text-slate-200 w-12 text-right" type="text" value="20"/>%
+                        <span class="material-symbols-outlined text-slate-600 text-[16px]">info</span>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6">
+<div class="glass-card rounded-xl overflow-hidden border border-primary/20">
+<div class="px-6 py-4 bg-primary/5 border-b border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">keyboard_arrow_down</span>
+<h3 class="font-bold text-slate-200">Partida 1: CONSTRUCCIÓN EMPALMES</h3>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-slate-500">
+<span>Total Partida: <span class="text-slate-200">142,40 UF</span></span>
+<button class="material-symbols-outlined text-[18px] hover:text-slate-300">more_vert</button>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse text-xs">
+<thead class="bg-slate-800/50 text-slate-400 uppercase text-[10px] font-bold">
+<tr>
+<th class="px-4 py-3 border-b border-slate-800 w-10">#</th>
+<th class="px-4 py-3 border-b border-slate-800 min-w-[200px]">Descripción</th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">Cant</th>
+<th class="px-4 py-3 border-b border-slate-800">Ud</th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">Mat CLP <span class="material-symbols-outlined text-[12px] align-middle">lock</span></th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">HH CLP <span class="material-symbols-outlined text-[12px] align-middle">lock</span></th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">Margen</th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">V.Unit UF</th>
+<th class="px-4 py-3 border-b border-slate-800 text-right">V.Total UF</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800">
+<tr class="hover:bg-slate-800/30 transition-colors group">
+<td class="px-4 py-3 text-slate-500">1.1</td>
+<td class="px-4 py-3"><input class="bg-transparent border-none p-0 text-xs w-full focus:ring-0" type="text" value="Poste de Concreto 11.5m"/></td>
+<td class="px-4 py-3 text-right"><input class="bg-transparent border-none p-0 text-xs w-full text-right focus:ring-0" type="text" value="12"/></td>
+<td class="px-4 py-3 text-slate-400 uppercase">UN</td>
+<td class="px-4 py-3 text-right text-slate-400">$245.000</td>
+<td class="px-4 py-3 text-right text-slate-400">$85.000</td>
+<td class="px-4 py-3 text-right"><span class="bg-primary/10 text-primary px-1.5 py-0.5 rounded">20%</span></td>
+<td class="px-4 py-3 text-right font-medium">10,20</td>
+<td class="px-4 py-3 text-right font-bold text-slate-200">122,40</td>
+</tr>
+<tr class="hover:bg-slate-800/30 transition-colors group">
+<td class="px-4 py-3 text-slate-500">1.2</td>
+<td class="px-4 py-3"><input class="bg-transparent border-none p-0 text-xs w-full focus:ring-0" type="text" value="Excavación y Fundación"/></td>
+<td class="px-4 py-3 text-right"><input class="bg-transparent border-none p-0 text-xs w-full text-right focus:ring-0" type="text" value="4"/></td>
+<td class="px-4 py-3 text-slate-400 uppercase">GL</td>
+<td class="px-4 py-3 text-right text-slate-400">$12.000</td>
+<td class="px-4 py-3 text-right text-slate-400">$150.000</td>
+<td class="px-4 py-3 text-right"><span class="bg-primary/10 text-primary px-1.5 py-0.5 rounded">20%</span></td>
+<td class="px-4 py-3 text-right font-medium">5,00</td>
+<td class="px-4 py-3 text-right font-bold text-slate-200">20,00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 border-t border-slate-800">
+<button class="w-full py-2 rounded-lg border border-dashed border-slate-700 text-slate-500 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all text-xs font-medium flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+                            Agregar Ítem
+                        </button>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="px-6 py-4 bg-slate-800/30 border-b border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">keyboard_arrow_right</span>
+<h3 class="font-bold text-slate-200">Gastos Generales</h3>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-slate-500">
+<span>Total Itemizado: <span class="text-slate-200">31,17 UF</span></span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<aside class="w-[380px] shrink-0">
+<div class="sticky top-24 flex flex-col gap-4">
+<div class="glass-card rounded-2xl p-6 border-slate-800 shadow-xl">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-sm font-bold uppercase tracking-wider text-slate-400">Cuadro Resumen</h2>
+<span class="material-symbols-outlined text-slate-500">pie_chart</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">P1. Construcción Empalmes</span>
+<span class="font-medium">142,40 UF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">P2. Red Media Tensión</span>
+<span class="font-medium">210,00 UF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">P3. Alumbrado Público</span>
+<span class="font-medium">90,00 UF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">Gastos Generales</span>
+<span class="font-medium">31,17 UF</span>
+</div>
+<div class="h-px bg-slate-800 my-4"></div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">Total Neto</span>
+<span class="font-bold text-slate-200">473,57 UF</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">IVA (19%)</span>
+<span class="font-medium">89,98 UF</span>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl p-5 border border-primary/20">
+<div class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Presupuesto Total</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-white">563,55</span>
+<span class="text-xl font-bold text-primary">UF</span>
+</div>
+<div class="text-[11px] text-slate-500 mt-2 font-medium">Equivale aprox. a $21.655.234 CLP</div>
+</div>
+<button class="w-full mt-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                        Exportar Reporte PDF
+                    </button>
+</div>
+<div class="glass-card rounded-2xl p-4 border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-500">verified</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-tighter">Estado de Validación</p>
+<p class="text-xs text-slate-200">Sin discrepancias técnicas</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<footer class="mt-20 border-t border-slate-800 py-12 px-6">
+<div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 opacity-50">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">bolt</span>
+</div>
+<span class="text-sm font-bold tracking-tight">VINISE CL</span>
+</div>
+<nav class="flex gap-8 text-xs font-medium uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Soporte</a>
+<a class="hover:text-primary transition-colors" href="#">Historial</a>
+<a class="hover:text-primary transition-colors" href="#">Configuración</a>
+<a class="hover:text-primary transition-colors" href="#">Seguridad</a>
+</nav>
+<p class="text-[10px] text-slate-500">© 2024 Vinise Electrical Construction Management. Santiago, Chile.</p>
+</div>
+</footer>
+</body></html>

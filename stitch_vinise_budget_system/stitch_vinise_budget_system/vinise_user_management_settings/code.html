@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VINISE User Management Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0F172A",
+                        "surface-dark": "#1E293B",
+                        "border-dark": "#334155",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- SideNavBar Component -->
+<aside class="w-64 flex-shrink-0 bg-slate-900 dark:bg-[#020617] border-r border-slate-800 flex flex-col">
+<div class="p-6 flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary rounded-lg p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">electric_bolt</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-none tracking-tight">VINISE</h1>
+<p class="text-slate-400 text-xs mt-1">Electrical Mgmt</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">calculate</span>
+<span class="text-sm font-medium">Presupuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">account_tree</span>
+<span class="text-sm font-medium">Proyectos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">bar_chart</span>
+<span class="text-sm font-medium">Reportes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white bg-primary/20 border border-primary/30 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-xl text-primary">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-800">
+<div class="flex items-center gap-3">
+<img class="size-10 rounded-full bg-slate-800" data-alt="User profile picture for site administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzZW-_mBNkk0odEdt3wU-jMiEtomqRPp5xgZ9_dA0v9XRRUPIk2Gya8GNu7jEd1iDPG3vET_KhpZzfw5ClRlX10XFKWrkZeR89rSCrPnUls0djkow6Mbk4_4fbl9j7J__NUo6biZIV9FiyMvSjk3fBH2oegn4CNIHmciT-OK_KuMnDHXv7-ruuLK32Xne__WBZ1GszFXMga1zRSeZ7Z0VD9SdxTBui7mEv_k-LkAmv6XyQu6zxwz4n8550uSlTdz4DHtcg31SD06EM"/>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-white">Admin Principal</p>
+<p class="text-xs text-slate-400">admin@vinise.cl</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Bar -->
+<header class="h-16 border-b border-slate-200 dark:border-border-dark flex items-center justify-between px-8 bg-white dark:bg-background-dark/50 backdrop-blur-md">
+<div class="flex items-center gap-8">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">settings</span>
+                        Configuración
+                    </h2>
+<nav class="flex gap-1">
+<a class="px-4 py-5 text-sm font-semibold border-b-2 border-primary text-primary" href="#">Usuarios</a>
+<a class="px-4 py-5 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-2 border-transparent" href="#">General</a>
+<a class="px-4 py-5 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-2 border-transparent" href="#">Alertas</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Content Area -->
+<div class="flex-1 overflow-y-auto p-8 flex gap-8">
+<!-- Main Settings Section -->
+<div class="flex-1 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-bold">Gestión de Usuarios del Sistema</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Administra los accesos y permisos de tu equipo de ingeniería.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-bold text-sm flex items-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                            + Invitar Usuario
+                        </button>
+</div>
+<!-- Users Table -->
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">
+<th class="px-6 py-4">Nombre</th>
+<th class="px-6 py-4">Email</th>
+<th class="px-6 py-4">Rol</th>
+<th class="px-6 py-4">Estado</th>
+<th class="px-6 py-4">Último Acceso</th>
+<th class="px-6 py-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-border-dark">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">RP</div>
+<span class="font-medium">Rodrigo Pérez</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">rperez@vinise.cl</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 bg-primary/10 text-primary rounded text-[11px] font-bold uppercase tracking-tight border border-primary/20">Admin</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm">Activo</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">Hoy, 10:30</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors px-2 py-1">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center font-bold text-xs">CM</div>
+<span class="font-medium">Carolina Muñoz</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">cmunoz@vinise.cl</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded text-[11px] font-bold uppercase tracking-tight border border-slate-200 dark:border-slate-700">Editor</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-emerald-500"></span>
+<span class="text-sm">Activo</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">Ayer, 15:45</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors px-2 py-1">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center font-bold text-xs">JS</div>
+<span class="font-medium">Jorge Soto</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">jsoto@vinise.cl</td>
+<td class="px-6 py-4">
+<span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded text-[11px] font-bold uppercase tracking-tight border border-slate-200 dark:border-slate-700">Editor</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="size-2 rounded-full bg-slate-400"></span>
+<span class="text-sm text-slate-500">Inactivo</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">12 Oct, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors px-2 py-1">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Side Cards -->
+<aside class="w-80 flex flex-col gap-4">
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark p-5 rounded-xl">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Indicador Financiero</span>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<h4 class="text-slate-400 text-sm">Valor UF actual</h4>
+<p class="text-2xl font-bold mt-1 tracking-tight text-primary">$38.426,21</p>
+</div>
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark p-5 rounded-xl">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Capacidad Equipo</span>
+<span class="material-symbols-outlined text-emerald-500">group</span>
+</div>
+<h4 class="text-slate-400 text-sm">Usuarios activos</h4>
+<div class="flex items-end gap-2 mt-1">
+<p class="text-2xl font-bold tracking-tight">3/7</p>
+<span class="text-xs text-slate-500 mb-1">Licencias usadas</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-emerald-500 h-full w-[42%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark border border-slate-200 dark:border-border-dark p-5 rounded-xl">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Resumen Global</span>
+<span class="material-symbols-outlined text-amber-500">assignment</span>
+</div>
+<h4 class="text-slate-400 text-sm">Presupuestos totales</h4>
+<p class="text-2xl font-bold mt-1 tracking-tight">42</p>
+</div>
+</aside>
+</div>
+</main>
+</div>
+<!-- Overlay Modal: Invitar Nuevo Usuario -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background-dark/80 backdrop-blur-sm">
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-border-dark w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50"></div>
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold">Invitar Nuevo Usuario</h3>
+<button class="text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-5">
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Nombre completo</label>
+<input class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg py-2.5 px-4 focus:ring-2 focus:ring-primary outline-none text-sm transition-all" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Email institucional</label>
+<div class="relative">
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg py-2.5 px-4 focus:ring-2 focus:ring-primary outline-none text-sm transition-all pl-4 pr-12" placeholder="usuario@vinise.cl" type="email"/>
+<span class="absolute right-4 top-2.5 text-slate-400 text-xs py-0.5 px-1 bg-slate-100 dark:bg-slate-700 rounded">@vinise.cl</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Seleccionar Rol</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer hidden" name="role" type="radio"/>
+<div class="flex flex-col gap-1 p-3 border border-slate-200 dark:border-slate-700 rounded-lg peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold">Admin</span>
+<div class="size-4 border-2 border-slate-300 dark:border-slate-600 rounded-full flex items-center justify-center peer-checked:border-primary">
+<div class="size-2 bg-primary rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<p class="text-[10px] text-slate-500">Acceso total a configuración y presupuestos.</p>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer hidden" name="role" type="radio"/>
+<div class="flex flex-col gap-1 p-3 border border-slate-200 dark:border-slate-700 rounded-lg peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold">Editor</span>
+<div class="size-4 border-2 border-slate-300 dark:border-slate-600 rounded-full flex items-center justify-center peer-checked:border-primary">
+<div class="size-2 bg-primary rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+<p class="text-[10px] text-slate-500">Solo edición y creación de presupuestos.</p>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-4">
+<button class="flex-1 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" type="button">Cancelar</button>
+<button class="flex-1 py-2.5 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/25 transition-all" type="button">Enviar Invitación</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body></html>

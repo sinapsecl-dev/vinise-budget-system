@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3c83f6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .document-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-hidden">
+<!-- Background Mockup Layer (Budget Editor) -->
+<div class="fixed inset-0 flex opacity-20 pointer-events-none">
+<div class="w-full h-full p-8 flex flex-col gap-6">
+<div class="h-12 w-1/4 bg-slate-700 rounded"></div>
+<div class="grid grid-cols-4 gap-4">
+<div class="h-32 bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800 rounded"></div>
+</div>
+<div class="flex-1 bg-slate-800/50 rounded-xl border border-slate-700/50 p-6">
+<div class="space-y-4">
+<div class="h-4 w-full bg-slate-700 rounded"></div>
+<div class="h-4 w-5/6 bg-slate-700 rounded"></div>
+<div class="h-4 w-4/6 bg-slate-700 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel Overlay -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"></div>
+<!-- Right Side Panel (40% Width) -->
+<div class="fixed top-0 right-0 h-full w-[40%] bg-slate-900 border-l border-slate-800 z-50 flex flex-col shadow-2xl">
+<!-- Header -->
+<header class="p-6 border-b border-slate-800">
+<div class="flex items-center justify-between mb-6">
+<div class="flex flex-col">
+<h2 class="text-xl font-bold text-white tracking-tight">Vista Previa de Carta</h2>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider">Constructora Los Andes</p>
+</div>
+<button class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Tabs -->
+<div class="flex gap-8 border-b border-slate-800">
+<button class="pb-3 border-b-2 border-primary text-primary font-semibold text-sm">
+                    General
+                </button>
+<button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300 font-medium text-sm transition-colors">
+                    Desglosada
+                </button>
+</div>
+</header>
+<!-- Preview Area (Scrollable) -->
+<main class="flex-1 overflow-y-auto bg-slate-950/50 p-8 flex justify-center">
+<!-- A4 Document Simulator -->
+<div class="w-full max-w-[600px] aspect-[1/1.41] bg-white text-slate-900 rounded-sm p-12 document-shadow flex flex-col">
+<!-- Document Header -->
+<div class="flex justify-between items-start mb-12">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-white text-2xl">bolt</span>
+</div>
+<span class="font-bold text-xl tracking-tighter italic">VINISE</span>
+</div>
+<div class="text-right text-[10px] text-slate-500 space-y-0.5 leading-tight font-medium uppercase">
+<p>EECC-07 REV.00</p>
+<p>FECHA: 24/05/2024</p>
+<p>VALOR UF: $37.210</p>
+<p>VALIDEZ: 15 DÍAS</p>
+</div>
+</div>
+<!-- Document Content -->
+<div class="flex-1">
+<h1 class="text-2xl font-black text-center mb-10 tracking-widest border-y border-slate-100 py-2">PRESUPUESTO</h1>
+<div class="mb-10 text-sm">
+<p class="text-slate-500 mb-1">A la atención de:</p>
+<p class="font-bold text-lg">Constructora Los Andes S.A.</p>
+<p class="text-slate-600">Proyectos Eléctricos Especializados</p>
+<p class="text-slate-600">Santiago, Chile</p>
+</div>
+<div class="space-y-6">
+<p class="text-sm text-slate-700 leading-relaxed">Estimados señores, presentamos a continuación nuestra propuesta económica para la gestión técnica eléctrica del proyecto:</p>
+<!-- Table -->
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="border-b-2 border-slate-900">
+<th class="text-left py-3 font-bold uppercase tracking-wider">Ítem / Partida</th>
+<th class="text-right py-3 font-bold uppercase tracking-wider">Monto (UF)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="py-4 font-medium">Construcción Empalmes y Alimentadores BT</td>
+<td class="py-4 text-right">285,14 UF</td>
+</tr>
+<tr>
+<td class="py-4 font-medium">Obras Eléctricas Interiores (Viviendas tipo A/B)</td>
+<td class="py-4 text-right">278,15 UF</td>
+</tr>
+<tr class="bg-slate-50 font-bold border-t-2 border-slate-900">
+<td class="py-4 px-2">TOTAL NETO</td>
+<td class="py-4 px-2 text-right text-lg">563,29 UF</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Document Footer -->
+<div class="mt-12 pt-6 border-t border-slate-200">
+<p class="text-[10px] text-slate-400 font-medium italic mb-1">Valores expresados en UF + IVA (19%)</p>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-[9px] text-slate-500 leading-tight">VINISE Ingeniería Eléctrica SpA</p>
+<p class="text-[9px] text-slate-500 leading-tight">contacto@vinise.cl | +56 2 2345 6789</p>
+</div>
+<div class="w-20 h-20 bg-slate-100 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-300 text-3xl">qr_code_2</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Panel Footer Actions -->
+<footer class="p-6 bg-slate-900 border-t border-slate-800 space-y-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">PDF — Formato Carta</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl">download</span>
+<span class="text-sm">Descargar General</span>
+</button>
+<button class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-all border border-slate-700">
+<span class="material-symbols-outlined text-xl">file_download</span>
+<span class="text-sm">Descargar Desglosado</span>
+</button>
+</div>
+<button class="w-full text-slate-500 hover:text-slate-300 text-xs font-medium underline underline-offset-4 transition-colors">
+                Configurar márgenes y sellos de documento
+            </button>
+</footer>
+</div>
+</body></html>

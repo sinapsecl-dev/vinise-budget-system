@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VINISE Budget Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2559f4",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0F172A",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex font-display">
+<!-- Sidebar -->
+<aside class="w-[250px] border-r border-slate-200 dark:border-slate-800 flex flex-col fixed inset-y-0 bg-white dark:bg-slate-900/50">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined fill-1">bolt</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">VINISE</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Budget System</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Presupuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="text-sm font-medium">Base de Datos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Configuración</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+<div class="size-9 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+<img alt="Avatar de Rodrigo Pérez" class="w-full h-full object-cover" data-alt="Ilustración de avatar masculino de perfil profesional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHZlXjcETv8fbLFg4CBYqyizZuA7bJKc0h_qpI-jM_O1Tu70JmqCdYKlp0qB_jhqL_hyj2XcJx96wcQH1jVSWb0km6j0sbPRZ9k82c3x9JUKEt4JZIbnSTyzyDN9JYflS9qEdha2w6CBIcji-vc5Ac2vXhZcmnrajf7DiO1cmoJnp3dhAfXuWJXMvh0FRFEQaKkhJNmeuwFtTswXYga_IAxizmMahYzi0ot5xWJHytziprgsjazCKiFdxVcEX3XLf-2Ao4sIdB0Oj"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-sm font-semibold truncate">Rodrigo Pérez</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Administrador</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-[250px] flex-1 flex flex-col min-h-screen">
+<!-- Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between">
+<h2 class="text-lg font-bold">Dashboard</h2>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold text-emerald-500">UF: $38.426,21</span>
+</div>
+<button class="relative p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full ring-2 ring-background-dark"></span>
+</button>
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-800">
+<img alt="Logo corporativo" class="w-full h-full p-1.5" data-alt="Icono geométrico corporativo abstracto con tonos azules" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2y_0-_ga_9ZzxSZmDSROberD33bDpj0xK5gB9trWzd97rcIgkal9WUSUCpV1HH-xf5OKp6Z1fQjExmQBjKVfdIdTaddGAwkRKewTyRHc2irPBYXg2V3VBZIkfaeegVwhyL-wczwDXnPdke-Vugi_IFvEtTjZULSd57Cv8cpTQsFwudpUU6EpPX37gpkubQ0G95WVT6tgD5K1UDoYqB1LyXYoWc4IvlZHGOWeGNU6hLghDsiHMnwVPczo3S0eXnzmfDcNf8J-vSkxU"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-500/10 rounded-lg text-blue-500">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">+2.4%</span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Presupuestos Activos</p>
+<h3 class="text-2xl font-bold mt-1">12</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-500/10 rounded-lg text-purple-500">
+<span class="material-symbols-outlined">outgoing_mail</span>
+</div>
+<span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">+12%</span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Enviados este mes</p>
+<h3 class="text-2xl font-bold mt-1">5</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-500">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">+5%</span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Adjudicados</p>
+<h3 class="text-2xl font-bold mt-1">3</h3>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-500/10 rounded-lg text-amber-500">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-xs font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">+8.1%</span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Valor total</p>
+<h3 class="text-2xl font-bold mt-1">2.450,00 UF</h3>
+</div>
+</div>
+<!-- Table Section -->
+<div class="glass-panel rounded-xl overflow-hidden shadow-2xl">
+<div class="p-6 border-b border-slate-200/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h3 class="text-xl font-bold">Presupuestos Recientes</h3>
+<p class="text-sm text-slate-400">Gestiona y monitorea los últimos presupuestos generados.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary w-full md:w-64 transition-all" placeholder="Buscar presupuesto..." type="text"/>
+</div>
+<button class="p-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-lg transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">add_box</span>
+                            Nuevo Presupuesto
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-800/30 text-slate-400 uppercase text-[11px] font-bold tracking-wider">
+<th class="px-6 py-4">Código</th>
+<th class="px-6 py-4">Cliente</th>
+<th class="px-6 py-4">Proyecto</th>
+<th class="px-6 py-4">Estado</th>
+<th class="px-6 py-4">Total UF</th>
+<th class="px-6 py-4">Fecha</th>
+<th class="px-6 py-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800">
+<tr class="hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 font-mono text-xs font-medium text-slate-400">#PR-2024-042</td>
+<td class="px-6 py-4 font-medium">Constructora Echeverría</td>
+<td class="px-6 py-4 text-slate-400">Instalación Eléctrica Torre B</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-500">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                        Borrador
+                                    </span>
+</td>
+<td class="px-6 py-4 font-bold">450.00 UF</td>
+<td class="px-6 py-4 text-slate-400 text-sm">22 May, 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 font-mono text-xs font-medium text-slate-400">#PR-2024-041</td>
+<td class="px-6 py-4 font-medium">Minería del Cobre S.A.</td>
+<td class="px-6 py-4 text-slate-400">Mantenimiento Transformadores</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-primary/10 text-primary">
+<span class="size-1.5 rounded-full bg-primary"></span>
+                                        Enviado
+                                    </span>
+</td>
+<td class="px-6 py-4 font-bold">1,200.00 UF</td>
+<td class="px-6 py-4 text-slate-400 text-sm">18 May, 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 font-mono text-xs font-medium text-slate-400">#PR-2024-039</td>
+<td class="px-6 py-4 font-medium">Mall Plaza Antofagasta</td>
+<td class="px-6 py-4 text-slate-400">Renovación Alumbrado LED</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/10 text-amber-500">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                        Adjudicado
+                                    </span>
+</td>
+<td class="px-6 py-4 font-bold">800.00 UF</td>
+<td class="px-6 py-4 text-slate-400 text-sm">15 May, 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 font-mono text-xs font-medium text-slate-400">#PR-2024-035</td>
+<td class="px-6 py-4 font-medium">Residencial Las Condes</td>
+<td class="px-6 py-4 text-slate-400">Estudio de Carga Eléctrica</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-500/20 text-slate-500">
+<span class="size-1.5 rounded-full bg-slate-500"></span>
+                                        Cerrado
+                                    </span>
+</td>
+<td class="px-6 py-4 font-bold">120.00 UF</td>
+<td class="px-6 py-4 text-slate-400 text-sm">10 May, 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="p-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-200/10 flex items-center justify-between bg-slate-800/10">
+<p class="text-xs text-slate-500">Mostrando 4 de 12 presupuestos activos</p>
+<div class="flex items-center gap-2">
+<button class="p-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 bg-slate-800/50 border border-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Additional Context Section (Bottom) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+<h4 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">show_chart</span>
+                        Proyección Mensual
+                    </h4>
+<div class="h-48 w-full flex items-end gap-3 px-2">
+<div class="flex-1 bg-slate-800 rounded-t-lg relative group h-[40%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">120UF</div>
+</div>
+<div class="flex-1 bg-slate-800 rounded-t-lg relative group h-[65%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">180UF</div>
+</div>
+<div class="flex-1 bg-primary rounded-t-lg relative group h-[85%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity text-white">245UF</div>
+</div>
+<div class="flex-1 bg-slate-800 rounded-t-lg relative group h-[50%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">150UF</div>
+</div>
+<div class="flex-1 bg-slate-800 rounded-t-lg relative group h-[75%]">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-[10px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">210UF</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<span>Ene</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Abr</span>
+<span>May</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+<h4 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+                        Tareas Pendientes
+                    </h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 rounded-lg bg-slate-800/30 border border-slate-700/50">
+<div class="size-2 rounded-full bg-amber-500"></div>
+<div class="flex-1">
+<p class="text-sm font-medium">Revisar presupuesto #PR-039</p>
+<p class="text-xs text-slate-500">Solicitado por Rodrigo Pérez</p>
+</div>
+<span class="text-[10px] font-bold text-slate-500">HACE 2H</span>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg bg-slate-800/30 border border-slate-700/50">
+<div class="size-2 rounded-full bg-primary"></div>
+<div class="flex-1">
+<p class="text-sm font-medium">Actualizar precios base de datos</p>
+<p class="text-xs text-slate-500">Mantenimiento mensual</p>
+</div>
+<span class="text-[10px] font-bold text-slate-500">HACE 5H</span>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">VER TODAS LAS ACTIVIDADES</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

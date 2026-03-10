@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #2559f4;
+  --color-background-light: #f5f6f8;
+  --color-background-dark: #0F172A;
+  --font-display: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-xl rounded-2xl;
+  }
+}
